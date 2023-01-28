@@ -44,12 +44,13 @@ async function generateProof(
     externalNullifier: pollId,
   };
 
+  const filename_stub = "ecdsa-semaphore_final"
   await downloadFromFilename(
-    "https://d34j71521rx7kc.cloudfront.net",
-    "ecdsa-semaphore_16"
+    "https://d34j71521rx7kc.cloudfront.net/",
+    filename_stub
   );
 
-  const { proof, publicSignals } = await fullProve(input, "ecdsa-semaphore_16");
+  const { proof, publicSignals } = await fullProve(input, filename_stub);
   const proofForTx = [
     proof.pi_a[0],
     proof.pi_a[1],
