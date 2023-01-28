@@ -9,6 +9,7 @@ const snarkjs = require("snarkjs");
 
 export async function downloadFromFilename(s3_url: string, filename: string) {
   const link = s3_url + filename + ".zkey";
+  console.log("This is the link: ", link)
   try {
     const item = await localforage.getItem(`${filename}.zkey`);
     if (item) {
